@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mauro Cortez-Huerta | Portafolio y CV</title>
+    <title>Mauro Cortez-Huerta | Portafolio Académico y Científico</title>
     <style>
         :root {
             --primary-color: #0f172a;
@@ -11,6 +11,7 @@
             --bg-color: #f8fafc;
             --text-color: #334155;
             --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -26,6 +27,15 @@
             text-align: center;
             padding: 3rem 1rem;
         }
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            margin-bottom: 1rem;
+            background-color: #cbd5e1;
+        }
         header h1 {
             margin: 0;
             font-size: 2.2rem;
@@ -34,10 +44,35 @@
             color: #38bdf8;
             font-size: 1.1rem;
             margin-top: 0.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .btn-social {
+            background-color: #1e293b;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s;
+            border: 1px solid #334155;
+        }
+        .btn-social:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
         }
         .container {
-            max-width: 900px;
-            margin: -30px auto 40px auto;
+            max-width: 950px;
+            margin: -20px auto 40px auto;
             padding: 0 20px;
         }
         section {
@@ -53,20 +88,21 @@
             padding-bottom: 8px;
             margin-top: 0;
         }
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-right: 15px;
-            font-weight: bold;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
         ul {
             padding-left: 20px;
         }
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+        }
+        .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 6px;
         }
         footer {
             text-align: center;
@@ -74,26 +110,39 @@
             color: #64748b;
             font-size: 0.9rem;
         }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <header>
+        <!-- Sustituye el enlace de src si subes tu foto a GitHub o usas un enlace directo -->
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Mauro Cortez-Huerta" class="profile-img" style="display:none;" id="user-photo">
+        <!-- Nota: Si prefieres poner tu foto, puedes subirla al repositorio y poner su ruta ej. src="foto.jpg" y quitar style="display:none;" -->
+        
         <h1>Mauro Cortez-Huerta</h1>
-        <p>Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire y Modelación Atmosférica</p>
+        <p>Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</p>
+        
+        <!-- Botones de Redes Académicas y Profesionales -->
+        <div class="social-links">
+            <a href="https://orcid.org/0000-0001-8968-6405" target="_blank" class="btn-social">ORCID</a>
+            <a href="https://scholar.google.es/citations?user=0mN7vIEAAAAJ&hl=es" target="_blank" class="btn-social">Google Scholar</a>
+            <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank" class="btn-social">LinkedIn</a>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=58541554700" target="_blank" class="btn-social">Scopus</a>
+            <a href="https://www.webofscience.com/wos/author/record/JXM-4968-2024" target="_blank" class="btn-social">Web of Science</a>
+            <a href="https://www.researchgate.net/profile/Mauro-Cortez-Huerta" target="_blank" class="btn-social">ResearchGate</a>
+            <a href="mailto:maurocortezhuerta@gmail.com" class="btn-social">Contacto Email</a>
+        </div>
     </header>
 
     <div class="container">
         
-        <section>
-            <h2>Contacto</h2>
-            <div class="contact-info">
-                <p>📧 <strong>Correo:</strong> <a href="mailto:maurocortezhuerta@gmail.com">maurocortezhuerta@gmail.com</a></p>
-                <p>📱 <strong>Celular:</strong> +52 2226278653</p>
-                <p>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank">Ver perfil profesional</a></p>
-            </div>
-        </section>
-
         <section>
             <h2>Objetivo Profesional</h2>
             <p>Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
@@ -102,27 +151,73 @@
         <section>
             <h2>Experiencia Profesional</h2>
             <ul>
-                <li><strong>Técnico Especialista</strong> | Comisión Federal de Electricidad (CFE) (Noviembre 2025 - Presente)[cite: 6]. Estudios de dispersión de emisiones a la atmósfera (EDEA), ruido ambiental y perimetral, y estudios de riesgo ambiental (ERA)[cite: 6].</li>
-                <li><strong>Profesor</strong> | Universidad del Valle de México (UVM) - Campus Online (Septiembre 2024 - Presente)[cite: 6]. Impartición de Análisis de datos, Contexto energético mundial y Tecnologías de la Información[cite: 6].</li>
-                <li><strong>Profesor</strong> | Instituto de Estudios Universitarios (IEU) - Campus Online (Agosto 2024 - Julio 2025)[cite: 6]. Cursos en gestión ambiental, sustentabilidad y metodologías de evaluación[cite: 6].</li>
-                <li><strong>Consultor Ambiental</strong> | Instituto de Ciencias de la Atmósfera y Cambio Climático - UNAM (Septiembre 2022 - Junio 2023)[cite: 6]. Elaboración de inventarios de emisiones, mapas de dispersión con CALPUFF y análisis portuarios[cite: 6].</li>
+                <li><strong>Técnico Especializado</strong> | Comisión Federal de Electricidad (CFE) (Nov 2025 - Presente)[cite: 11]. Departamento de Caracterización Ambiental[cite: 11].</li>
+                <li><strong>Profesor</strong> | Universidad del Valle de México - UVM (Oct 2024 - Presente)[cite: 11]. Maestría en Ingeniería con Orientación en Energías Renovables[cite: 11].</li>
+                <li><strong>Profesor</strong> | Instituto de Estudios Universitarios - IEU (Sep 2024 - Ago 2025)[cite: 11]. Licenciatura en Ingeniería Ambiental[cite: 11].</li>
+                <li><strong>Consultor Ambiental</strong> | Universidad Nacional Autónoma de México - UNAM (Oct 2022 - Jun 2023)[cite: 11]. Instituto de Ciencias de la Atmósfera y Cambio Climático[cite: 11].</li>
             </ul>
         </section>
 
         <section>
             <h2>Educación y Formación</h2>
             <ul>
-                <li><strong>Doctorado en Ingeniería Ambiental</strong> (Agosto 2022 - Presente)[cite: 5] - UNAM. <em>Investigación:</em> Evaluación del impacto de las emisiones del golfo de México en la calidad del aire costero[cite: 5].</li>
-                <li><strong>Estancia de Investigación</strong> (Feb 2025 - Julio 2025)[cite: 5] - Universidad de Murcia (UMU), España. Modelización con WRF-Chem[cite: 5].</li>
-                <li><strong>Maestría en Ingeniería Ambiental</strong> (2020 - 2022)[cite: 5] - UNAM[cite: 5].</li>
-                <li><strong>Licenciatura en Ingeniería Ambiental</strong> (2015 - 2020)[cite: 5] - BUAP[cite: 5].</li>
+                <li><strong>Doctorado en Ingeniería</strong> (Ago 2023 - Presente)[cite: 12] - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería[cite: 12].</li>
+                <li><strong>Maestría en Ingeniería</strong> (Sep 2020 - Sep 2022)[cite: 12] - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería[cite: 12].</li>
+                <li><strong>Ingeniería Ambiental</strong> (Ago 2015 - Mar 2020)[cite: 11, 12] - Benemérita Universidad Autónoma de Puebla (BUAP)[cite: 11].</li>
+                <li><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025)[cite: 12], Universidad de Guadalajara (2019)[cite: 12], y Universidad Francisco de Paula Santander (Colombia, 2017)[cite: 12].</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Publicaciones Seleccionadas (ORCID)</h2>
+            <ul>
+                <li>
+                    <strong>Development of a high-resolution maritime emissions inventory for the Gulf of Mexico (GOM-HEI) based on AIS data</strong> (2026) <span class="badge">Ocean Engineering</span><br>
+                    <a href="https://doi.org/10.1016/j.oceaneng.2026.127003" target="_blank">DOI: 10.1016/j.oceaneng.2026.127003</a>[cite: 13]
+                </li>
+                <li>
+                    <strong>Random Forest approach to air quality assessment for port emissions in a coastal area in the Gulf of Mexico</strong> (2026) <span class="badge">Marine Pollution Bulletin</span><br>
+                    <a href="https://doi.org/10.1016/j.marpolbul.2025.118765" target="_blank">DOI: 10.1016/j.marpolbul.2025.118765</a>[cite: 14]
+                </li>
+                <li>
+                    <strong>Temporal estimation of air emissions due to maritime activities in the main ports of Panama</strong> (2025) <span class="badge">Regional Studies in Marine Science</span><br>
+                    <a href="https://doi.org/10.1016/j.rsma.2025.104222" target="_blank">DOI: 10.1016/j.rsma.2025.104222</a>[cite: 14]
+                </li>
+                <li>
+                    <strong>Air Quality Index and Ozone Environmental Contingencies in the Megalopolis of the Metropolitan Zone of the Valley of Mexico</strong> (2025) <span class="badge">Air Quality, Atmosphere & Health</span><br>
+                    <a href="https://doi.org/10.1007/s11869-025-01775-8" target="_blank">DOI: 10.1007/s11869-025-01775-8</a>[cite: 14]
+                </li>
+                <li>
+                    <strong>High-resolution atmospheric emissions estimate from dredging activities during port expansion in Veracruz, Mexico</strong> (2024) <span class="badge">Ocean Engineering</span><br>
+                    <a href="https://doi.org/10.1016/j.oceaneng.2024.118621" target="_blank">DOI: 10.1016/j.oceaneng.2024.118621</a>[cite: 14]
+                </li>
+                <li>
+                    <strong>Influence of particulate matter on air quality due to "Nortes" events in the Gulf of Mexico</strong> (2023) <span class="badge">Atmospheric Pollution Research</span><br>
+                    <a href="https://doi.org/10.1016/j.apr.2023.101889" target="_blank">DOI: 10.1016/j.apr.2023.101889</a>[cite: 15]
+                </li>
+            </ul>
+            <p style="margin-top: 15px; text-align: right;"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank">Ver lista completa de publicaciones en ORCID &rarr;</a></p>
+        </section>
+
+        <section>
+            <h2>Revisiones por Pares (Peer Review)</h2>
+            <p>Participación activa como revisor científico evaluando manuscritos en revistas indexadas de alto impacto (33 revisiones registradas)[cite: 15]:</p>
+            <ul>
+                <li><strong>International Journal of Environmental Science and Technology</strong> (8 revisiones)[cite: 15]</li>
+                <li><strong>Marine Pollution Bulletin</strong> (7 revisiones)[cite: 15]</li>
+                <li><strong>Air Quality, Atmosphere & Health</strong> (5 revisiones)[cite: 15]</li>
+                <li><strong>Discover Environment</strong> (4 revisiones)[cite: 15]</li>
+                <li><strong>Atmospheric Environment: X</strong> (3 revisiones)[cite: 15]</li>
+                <li><strong>Theoretical and Applied Climatology</strong> (3 revisiones)[cite: 15]</li>
+                <li><strong>Frontiers in Marine Science</strong> & <strong>Frontiers in Public Health</strong>[cite: 15]</li>
+                <li><strong>Ocean Engineering</strong>[cite: 15]</li>
             </ul>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Mauro Cortez-Huerta. Creado con GitHub Pages.</p>
+        <p>&copy; 2026 Mauro Cortez-Huerta. Actualizado y vinculado desde ORCID.</p>
     </footer>
 </body>
 </html>
