@@ -26,6 +26,27 @@
             color: white;
             text-align: center;
             padding: 3rem 1rem;
+            position: relative;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+        }
+        .btn-lang {
+            background-color: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .btn-lang:hover {
+            background-color: var(--accent-color);
         }
         .profile-img {
             width: 130px;
@@ -117,16 +138,26 @@
         a:hover {
             text-decoration: underline;
         }
+        .lang-en { display: none; }
     </style>
 </head>
 <body>
 
     <header>
+        <!-- Botón de cambio de idioma -->
+        <div class="lang-switch">
+            <button class="btn-lang" onclick="setLanguage('es')">ES</button>
+            <button class="btn-lang" onclick="setLanguage('en')">EN</button>
+        </div>
+
         <!-- Tu foto cargada en el repositorio -->
         <img src="GS.jpeg" alt="Mauro Cortez-Huerta" class="profile-img">
         
-        <h1>Mauro Cortez-Huerta</h1>
-        <p>Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</p>
+        <h1 id="h-name">Mauro Cortez-Huerta</h1>
+        <p id="h-title">
+            <span class="lang-es">Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</span>
+            <span class="lang-en">Engineering PhD Candidate | Air Quality, Atmospheric Modeling & Environmental Management Specialist</span>
+        </p>
         
         <!-- Botones de Redes Académicas y Profesionales -->
         <div class="social-links">
@@ -143,12 +174,15 @@
     <div class="container">
         
         <section>
-            <h2>Objetivo Profesional</h2>
-            <p>Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
+            <h2 class="lang-es">Objetivo Profesional</h2>
+            <h2 class="lang-en">Professional Objective</h2>
+            <p class="lang-es">Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
+            <p class="lang-en">Apply environmental engineering principles to design comprehensive strategies that prevent pollution and promote natural resource protection. Implement solutions considering water, soil, biodiversity, waste management, and atmospheric aspects, using multidisciplinary tools and methodologies in high-impact projects.</p>
         </section>
 
         <section>
-            <h2>Experiencia Profesional</h2>
+            <h2 class="lang-es">Experiencia Profesional</h2>
+            <h2 class="lang-en">Professional Experience</h2>
             <ul>
                 <li><strong>Técnico Especializado</strong> | Comisión Federal de Electricidad (CFE) (Nov 2025 - Presente). Departamento de Caracterización Ambiental.</li>
                 <li><strong>Profesor</strong> | Universidad del Valle de México - UVM (Oct 2024 - Presente). Maestría en Ingeniería con Orientación en Energías Renovables.</li>
@@ -158,17 +192,19 @@
         </section>
 
         <section>
-            <h2>Educación y Formación</h2>
+            <h2 class="lang-es">Educación y Formación</h2>
+            <h2 class="lang-en">Education and Training</h2>
             <ul>
                 <li><strong>Doctorado en Ingeniería</strong> (Ago 2023 - Presente) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
                 <li><strong>Maestría en Ingeniería</strong> (Sep 2020 - Sep 2022) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
-                <li><strong>Ingeniería Ambiental</strong> (Ago 2015 - Mar 2020) - Benemérita Universidad Autónoma de Puebla (BUAP).</li>
-                <li><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025), Universidad de Guadalajara (2019), y Universidad Francisco de Paula Santander (Colombia, 2017).</li>
+                <li><strong>Ingeniería Ambiental</strong> (Ago 2015 - Mar 2020) - Benemérita Universidad Autónoma de Puebla (BUAP), Facultad de Ingeniería Química.</li>
+                <li><span class="lang-es"><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025), Universidad de Guadalajara (2019), y Universidad Francisco de Paula Santander (Colombia, 2017).</span><span class="lang-en"><strong>Research Visits & Exchanges:</strong> University of Murcia (Spain, 2025), University of Guadalajara (2019), and Universidad Francisco de Paula Santander (Colombia, 2017).</span></li>
             </ul>
         </section>
 
         <section>
-            <h2>Publicaciones Seleccionadas (ORCID)</h2>
+            <h2 class="lang-es">Publicaciones Seleccionadas (ORCID / SCHOLAR)</h2>
+            <h2 class="lang-en">Selected Publications (ORCID / SCHOLAR)</h2>
             <ul>
                 <li>
                     <strong>Development of a high-resolution maritime emissions inventory for the Gulf of Mexico (GOM-HEI) based on AIS data</strong> (2026) <span class="badge">Ocean Engineering</span><br>
@@ -195,12 +231,14 @@
                     <a href="https://doi.org/10.1016/j.apr.2023.101889" target="_blank">DOI: 10.1016/j.apr.2023.101889</a>
                 </li>
             </ul>
-            <p style="margin-top: 15px; text-align: right;"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank">Ver lista completa de publicaciones en ORCID &rarr;</a></p>
+            <p style="margin-top: 15px; text-align: right;"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank"><span class="lang-es">Ver lista completa de publicaciones en ORCID &rarr;</span><span class="lang-en">View full publication list on ORCID &rarr;</span></a></p>
         </section>
 
         <section>
-            <h2>Revisiones por Pares (Peer Review)</h2>
-            <p>Participación activa como revisor científico evaluando manuscritos en revistas indexadas de alto impacto (33 revisiones registradas):</p>
+            <h2 class="lang-es">Revisiones por Pares (Peer Review)</h2>
+            <h2 class="lang-en">Peer Review Activity</h2>
+            <p class="lang-es">Participación activa como revisor científico evaluando manuscritos en revistas indexadas de alto impacto (33 revisiones registradas):</p>
+            <p class="lang-en">Active participation as a scientific reviewer evaluating manuscripts in high-impact indexed journals (33 registered reviews):</p>
             <ul>
                 <li><strong>International Journal of Environmental Science and Technology</strong> (8 revisiones)</li>
                 <li><strong>Marine Pollution Bulletin</strong> (7 revisiones)</li>
@@ -208,15 +246,34 @@
                 <li><strong>Discover Environment</strong> (4 revisiones)</li>
                 <li><strong>Atmospheric Environment: X</strong> (3 revisiones)</li>
                 <li><strong>Theoretical and Applied Climatology</strong> (3 revisiones)</li>
-                <li><strong>Frontiers in Marine Science</strong> & <strong>Frontiers in Public Health</strong></li>
-                <li><strong>Ocean Engineering</strong></li>
+                <li><strong>Frontiers in Marine Science</strong> (1 revisión)</li>
+                <li><strong>Frontiers in Public Health</strong> (1 revisión)</li>
+                <li><strong>Ocean Engineering</strong> (1 revisión)</li>
             </ul>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Mauro Cortez-Huerta. Actualizado y vinculado desde ORCID.</p>
+        <p>&copy; 2026 Mauro Cortez-Huerta. <span class="lang-es">Actualizado y vinculado desde ORCID y Google Scholar.</span><span class="lang-en">Updated and linked from ORCID and Google Scholar.</span></p>
     </footer>
+
+    <script>
+        function setLanguage(lang) {
+            const esElements = document.querySelectorAll('.lang-es');
+            const enElements = document.querySelectorAll('.lang-en');
+            if (lang === 'en') {
+                esElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'inline');
+                document.querySelectorAll('p.lang-en, h2.lang-en').forEach(el => el.style.display = 'block');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                esElements.forEach(el => el.style.display = 'inline');
+                document.querySelectorAll('p.lang-es, h2.lang-es').forEach(el => el.style.display = 'block');
+            }
+        }
+        // Inicializar por defecto en Español
+        setLanguage('es');
+    </script>
 </body>
 </html>
