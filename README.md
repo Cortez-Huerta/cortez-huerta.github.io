@@ -2,7 +2,7 @@
 
 Welcome to the repository for my personal academic website. Here you can find my professional background, education, selected scientific publications, and peer-review activities.
 
-🌐 **Live Website / Sitio Web:** https://cortez-huerta.github.io/mauro_cortez-huerta.github.io/
+🌐 **Live Website / Sitio Web:** https://cortez-huerta.github.io/
 
 ---
 
