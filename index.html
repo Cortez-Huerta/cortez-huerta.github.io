@@ -22,10 +22,10 @@
             padding: 0;
         }
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 3rem 1rem 2rem 1rem;
             position: relative;
         }
         .lang-switch {
@@ -48,60 +48,110 @@
         .btn-lang:hover {
             background-color: var(--accent-color);
         }
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent-color);
-            margin-bottom: 1rem;
             background-color: #cbd5e1;
         }
-        header h1 {
+        h1 {
             margin: 0;
             font-size: 2.2rem;
+            color: var(--primary-color);
         }
-        header p {
-            color: #38bdf8;
+        .subtitle {
+            color: #64748b;
             font-size: 1.1rem;
-            margin-top: 0.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0;
         }
-        .social-links {
-            margin-top: 1.5rem;
+        .contact-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        .contact-row a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        /* Logos de redes académicas estilo minimalista */
+        .academic-logos {
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 25px;
+            margin-top: 20px;
         }
-        .btn-social {
-            background-color: #1e293b;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+        .academic-logos a {
+            font-weight: bold;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: background 0.2s;
-            border: 1px solid #334155;
+            font-size: 1.1rem;
+            transition: opacity 0.2s;
         }
-        .btn-social:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
+        .academic-logos a:hover {
+            opacity: 0.7;
         }
+        .logo-scopus { color: #f97316; }
+        .logo-rg { color: #00d084; }
+        .logo-orcid { color: #a6ce39; }
+        .logo-scholar { color: #4285f4; }
+        .logo-linkedin { color: #0a66c2; }
+        .logo-wos { color: #b91c1c; }
+
+        /* Sistema de Pestañas (Tabs) */
         .container {
-            max-width: 950px;
-            margin: -20px auto 40px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 0 20px;
         }
-        section {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 25px;
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #0f766e;
+            border-radius: 6px 6px 0 0;
+            overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .tab-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .tab-btn:hover {
+            background-color: #115e59;
+        }
+        .tab-btn.active {
+            background-color: #0f172a;
+            border-bottom: 4px solid var(--accent-color);
+        }
+        .tab-content {
+            background: var(--card-bg);
+            border-radius: 0 0 8px 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
         }
         h2 {
             color: var(--primary-color);
@@ -150,59 +200,87 @@
             <button class="btn-lang" onclick="setLanguage('en')">EN</button>
         </div>
 
-        <!-- Tu foto cargada en el repositorio -->
-        <img src="GS.jpeg" alt="Mauro Cortez-Huerta" class="profile-img">
-        
-        <h1 id="h-name">Mauro Cortez-Huerta</h1>
-        <p id="h-title">
-            <span class="lang-es">Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</span>
-            <span class="lang-en">Engineering PhD Candidate | Air Quality, Atmospheric Modeling & Environmental Management Specialist</span>
-        </p>
-        
-        <!-- Botones de Redes Académicas y Profesionales -->
-        <div class="social-links">
-            <a href="https://orcid.org/0000-0001-8968-6405" target="_blank" class="btn-social">ORCID</a>
-            <a href="https://scholar.google.es/citations?user=0mN7vIEAAAAJ&hl=es" target="_blank" class="btn-social">Google Scholar</a>
-            <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank" class="btn-social">LinkedIn</a>
-            <a href="https://www.scopus.com/authid/detail.uri?authorId=58541554700" target="_blank" class="btn-social">Scopus</a>
-            <a href="https://www.webofscience.com/wos/author/record/JXM-4968-2024" target="_blank" class="btn-social">Web of Science</a>
-            <a href="https://www.researchgate.net/profile/Mauro-Cortez-Huerta" target="_blank" class="btn-social">ResearchGate</a>
-            <a href="mailto:maurocortezhuerta@gmail.com" class="btn-social">Contacto Email</a>
+        <div class="profile-container">
+            <!-- Tu foto cargada en el repositorio -->
+            <img src="GS.jpeg" alt="Mauro Cortez-Huerta" class="profile-img">
+            
+            <h1 id="h-name">Mauro Cortez-Huerta</h1>
+            <p class="subtitle">
+                <span class="lang-es">Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</span>
+                <span class="lang-en">Engineering PhD Candidate | Air Quality, Atmospheric Modeling & Environmental Management Specialist</span>
+            </p>
+
+            <!-- Datos de contacto básicos -->
+            <div class="contact-row">
+                <span>📧 <a href="mailto:maurocortezhuerta@gmail.com">maurocortezhuerta@gmail.com</a></span>
+                <span>📱 +52 2226278653</span>
+            </div>
+
+            <!-- Logotipos / Enlaces de Redes Académicas -->
+            <div class="academic-logos">
+                <a href="https://www.scopus.com/authid/detail.uri?authorId=58541554700" target="_blank" class="logo-scopus">Scopus</a>
+                <a href="https://www.researchgate.net/profile/Mauro-Cortez-Huerta" target="_blank" class="logo-rg">ResearchGate</a>
+                <a href="https://orcid.org/0000-0001-8968-6405" target="_blank" class="logo-orcid">ORCID</a>
+                <a href="https://scholar.google.es/citations?user=0mN7vIEAAAAJ&hl=es" target="_blank" class="logo-scholar">Google Scholar</a>
+                <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank" class="logo-linkedin">LinkedIn</a>
+                <a href="https://www.webofscience.com/wos/author/record/JXM-4968-2024" target="_blank" class="logo-wos">Web of Science</a>
+            </div>
         </div>
     </header>
 
     <div class="container">
         
-        <section>
+        <!-- Pestañas de Navegación -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-info')">
+                <span class="lang-es">Información Académica</span>
+                <span class="lang-en">Academic Info</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-exp')">
+                <span class="lang-es">Experiencia</span>
+                <span class="lang-en">Experience</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-pubs')">
+                <span class="lang-es">Publicaciones</span>
+                <span class="lang-en">Publications</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-reviews')">
+                <span class="lang-es">Revisiones (Peer Review)</span>
+                <span class="lang-en">Peer Reviews</span>
+            </button>
+        </div>
+
+        <!-- Contenido Pestaña 1: Información Académica (Objetivo + Educación) -->
+        <div id="tab-info" class="tab-content active">
             <h2 class="lang-es">Objetivo Profesional</h2>
             <h2 class="lang-en">Professional Objective</h2>
             <p class="lang-es">Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
             <p class="lang-en">Apply environmental engineering principles to design comprehensive strategies that prevent pollution and promote natural resource protection. Implement solutions considering water, soil, biodiversity, waste management, and atmospheric aspects, using multidisciplinary tools and methodologies in high-impact projects.</p>
-        </section>
 
-        <section>
-            <h2 class="lang-es">Experiencia Profesional</h2>
-            <h2 class="lang-en">Professional Experience</h2>
-            <ul>
-                <li><strong>Técnico Especializado</strong> | Comisión Federal de Electricidad - CFE (Nov 2025 - Presente). Departamento de Caracterización Ambiental.</li>
-                <li><strong>Profesor</strong> | Universidad del Valle de México - UVM (Oct 2024 - Presente). Maestría en Ingeniería con Orientación en Energías Renovables.</li>
-                <li><strong>Profesor</strong> | Instituto de Estudios Universitarios - IEU (Sep 2024 - Ago 2025). Licenciatura en Ingeniería Ambiental.</li>
-                <li><strong>Consultor Ambiental</strong> | Universidad Nacional Autónoma de México - UNAM (Oct 2022 - Jun 2023). Instituto de Ciencias de la Atmósfera y Cambio Climático.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="lang-es">Educación y Formación</h2>
-            <h2 class="lang-en">Education and Training</h2>
+            <h2 style="margin-top: 30px;" class="lang-es">Educación y Formación</h2>
+            <h2 style="margin-top: 30px;" class="lang-en">Education and Training</h2>
             <ul>
                 <li><strong>Doctorado en Ingeniería</strong> (Ago 2023 - Presente) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
                 <li><strong>Maestría en Ingeniería</strong> (Sep 2020 - Sep 2022) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
                 <li><strong>Ingeniería Ambiental</strong> (Ago 2015 - Mar 2020) - Benemérita Universidad Autónoma de Puebla (BUAP), Facultad de Ingeniería Química.</li>
                 <li><span class="lang-es"><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025), Universidad de Guadalajara (2019), y Universidad Francisco de Paula Santander (Colombia, 2017).</span><span class="lang-en"><strong>Research Visits & Exchanges:</strong> University of Murcia (Spain, 2025), University of Guadalajara (2019), and Universidad Francisco de Paula Santander (Colombia, 2017).</span></li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <!-- Contenido Pestaña 2: Experiencia -->
+        <div id="tab-exp" class="tab-content">
+            <h2 class="lang-es">Experiencia Profesional</h2>
+            <h2 class="lang-en">Professional Experience</h2>
+            <ul>
+                <li><strong>Técnico Especializado</strong> | Comisión Federal de Electricidad (CFE) (Nov 2025 - Presente). Departamento de Caracterización Ambiental.</li>
+                <li><strong>Profesor</strong> | Universidad del Valle de México - UVM (Oct 2024 - Presente). Maestría en Ingeniería con Orientación en Energías Renovables.</li>
+                <li><strong>Profesor</strong> | Instituto de Estudios Universitarios - IEU (Sep 2024 - Ago 2025). Licenciatura en Ingeniería Ambiental.</li>
+                <li><strong>Consultor Ambiental</strong> | Universidad Nacional Autónoma de México - UNAM (Oct 2022 - Jun 2023). Instituto de Ciencias de la Atmósfera y Cambio Climático.</li>
+            </ul>
+        </div>
+
+        <!-- Contenido Pestaña 3: Publicaciones -->
+        <div id="tab-pubs" class="tab-content">
             <h2 class="lang-es">Publicaciones Seleccionadas (ORCID / SCHOLAR)</h2>
             <h2 class="lang-en">Selected Publications (ORCID / SCHOLAR)</h2>
             <ul>
@@ -232,9 +310,10 @@
                 </li>
             </ul>
             <p style="margin-top: 15px; text-align: right;"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank"><span class="lang-es">Ver lista completa de publicaciones en ORCID &rarr;</span><span class="lang-en">View full publication list on ORCID &rarr;</span></a></p>
-        </section>
+        </div>
 
-        <section>
+        <!-- Contenido Pestaña 4: Revisiones -->
+        <div id="tab-reviews" class="tab-content">
             <h2 class="lang-es">Revisiones por Pares (Peer Review)</h2>
             <h2 class="lang-en">Peer Review Activity</h2>
             <p class="lang-es">Participación activa como revisor científico evaluando manuscritos en revistas indexadas de alto impacto (33 revisiones registradas):</p>
@@ -250,15 +329,30 @@
                 <li><strong>Frontiers in Public Health</strong> (1 revisión)</li>
                 <li><strong>Ocean Engineering</strong> (1 revisión)</li>
             </ul>
-        </section>
+        </div>
 
     </div>
 
     <footer>
-             <p>&copy; 2026 Mauro Cortez-Huerta.</p>
+        <p>&copy; 2026 Mauro Cortez-Huerta.</p>
     </footer>
 
     <script>
+        // Función para cambiar de pestaña (Tabs)
+        function openTab(evt, tabName) {
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Función para cambiar de idioma (ES / EN)
         function setLanguage(lang) {
             const esElements = document.querySelectorAll('.lang-es');
             const enElements = document.querySelectorAll('.lang-en');
