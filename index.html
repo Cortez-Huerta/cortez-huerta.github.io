@@ -1,462 +1,239 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mauro Cortez-Huerta | Portafolio Académico y Científico</title>
-    <style>
-        :root {
-            --primary-color: #0f172a;
-            --accent-color: #0284c7;
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-            padding: 3rem 1rem 2rem 1rem;
-            position: relative;
-        }
-        .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 5px;
-        }
-        .btn-lang {
-            background-color: #1e293b;
-            color: white;
-            border: 1px solid #334155;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .btn-lang:hover {
-            background-color: var(--accent-color);
-        }
-        .profile-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--accent-color);
-            background-color: #cbd5e1;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-        }
-        .subtitle {
-            color: #64748b;
-            font-size: 1.1rem;
-            margin: 0;
-        }
-        .contact-row {
-            display: flex;
-            gap: 30px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-            color: #475569;
-        }
-        .contact-row a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        /* Logos de redes académicas estilo minimalista */
-        .academic-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .academic-logos a {
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: opacity 0.2s;
-        }
-        .academic-logos a:hover {
-            opacity: 0.7;
-        }
-        .logo-scopus { color: #f97316; }
-        .logo-rg { color: #00d084; }
-        .logo-orcid { color: #a6ce39; }
-        .logo-scholar { color: #4285f4; }
-        .logo-linkedin { color: #0a66c2; }
-        .logo-wos { color: #b91c1c; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mauro Cortez-Huerta | Portafolio Académico y Científico</title>
+<meta name="description" content="Candidato a Doctor en Ingeniería (UNAM). Calidad del aire, modelación atmosférica y gestión ambiental.">
+<style>
+:root{--ink:#111827;--text:#374151;--muted:#6b7280;--line:#e5e7eb;--bg:#fff;--soft:#f9fafb;--accent:#0369a1}
+@media(prefers-color-scheme:dark){:root{--ink:#f3f4f6;--text:#d1d5db;--muted:#9ca3af;--line:#27272a;--bg:#0b0d10;--soft:#111418;--accent:#38bdf8}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+html[data-lang=es] .lang-en,html[data-lang=en] .lang-es{display:none!important}
 
-        /* Sistema de Pestañas (Tabs) */
-        .container {
-            max-width: 1050px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .tabs-nav {
-            display: flex;
-            flex-wrap: wrap;
-            background-color: #0f766e;
-            border-radius: 6px 6px 0 0;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-        .tab-btn {
-            background-color: transparent;
-            border: none;
-            color: white;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            flex-grow: 1;
-            text-align: center;
-        }
-        .tab-btn:hover {
-            background-color: #115e59;
-        }
-        .tab-btn.active {
-            background-color: #0f172a;
-            border-bottom: 4px solid var(--accent-color);
-        }
-        .tab-content {
-            background: var(--card-bg);
-            border-radius: 0 0 8px 8px;
-            padding: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 12px;
-        }
-        .badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 6px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .lang-en { display: none; }
-    </style>
+header{max-width:760px;margin:0 auto;padding:56px 24px 28px;text-align:center;position:relative}
+.lang{position:absolute;top:20px;right:24px;display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font:600 .75rem inherit;font-family:inherit;padding:5px 10px;cursor:pointer;letter-spacing:.04em}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.avatar{width:104px;height:104px;border-radius:50%;object-fit:cover;background:var(--line);margin-bottom:18px}
+h1{margin:0;font-size:2rem;font-weight:650;letter-spacing:-.02em;color:var(--ink)}
+.subtitle{margin:8px auto 0;max-width:560px;color:var(--muted)}
+.contact,.links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:16px;font-size:.92rem}
+.links{margin-top:10px}
+.links a{color:var(--muted);font-weight:500}
+.links a:hover{color:var(--accent)}
+
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs{max-width:900px;margin:0 auto;padding:0 16px;display:flex;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:500 .9rem inherit;font-family:inherit;padding:14px 14px;cursor:pointer;white-space:nowrap}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.active{color:var(--ink);border-bottom-color:var(--accent)}
+
+main{max-width:760px;margin:0 auto;padding:36px 24px 24px;min-height:50vh}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+h2{font-size:1.15rem;font-weight:650;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em}
+h2:not(:first-child){margin-top:36px}
+p{margin:0 0 14px}
+ul{list-style:none;margin:0;padding:0}
+li{padding:14px 0;border-top:1px solid var(--line)}
+li:first-child{border-top:0;padding-top:0}
+li strong{color:var(--ink);font-weight:600}
+.badge{display:inline-block;margin-left:6px;padding:1px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem;font-weight:500;white-space:nowrap}
+.more{text-align:right;margin-top:8px}
+footer{text-align:center;padding:28px 24px 40px;color:var(--muted);font-size:.85rem}
+@media(max-width:560px){header{padding-top:64px}h1{font-size:1.6rem}}
+@media print{nav,.lang{display:none}.tab-content{display:block!important;margin-bottom:24px}}
+</style>
 </head>
 <body>
 
-    <header>
-        <!-- Botón de cambio de idioma -->
-        <div class="lang-switch">
-            <button class="btn-lang" onclick="setLanguage('es')">ES</button>
-            <button class="btn-lang" onclick="setLanguage('en')">EN</button>
-        </div>
+<header>
+  <div class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" data-set="es" aria-pressed="true">ES</button>
+    <button type="button" data-set="en" aria-pressed="false">EN</button>
+  </div>
+  <img src="GS.jpeg" alt="Mauro Cortez-Huerta" class="avatar">
+  <h1>Mauro Cortez-Huerta</h1>
+  <p class="subtitle">
+    <span class="lang-es">Candidato a Doctor en Ingeniería · Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</span>
+    <span class="lang-en">Engineering PhD Candidate · Air Quality, Atmospheric Modeling &amp; Environmental Management</span>
+  </p>
+  <div class="contact">
+    <a href="mailto:maurocortezhuerta@gmail.com">maurocortezhuerta@gmail.com</a>
+    <span>+52 222 627 8653</span>
+  </div>
+  <div class="links">
+    <a href="https://orcid.org/0000-0001-8968-6405" target="_blank" rel="noopener">ORCID</a>
+    <a href="https://scholar.google.es/citations?user=0mN7vIEAAAAJ&hl=es" target="_blank" rel="noopener">Google Scholar</a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=58541554700" target="_blank" rel="noopener">Scopus</a>
+    <a href="https://www.webofscience.com/wos/author/record/JXM-4968-2024" target="_blank" rel="noopener">Web of Science</a>
+    <a href="https://www.researchgate.net/profile/Mauro-Cortez-Huerta" target="_blank" rel="noopener">ResearchGate</a>
+    <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</header>
 
-        <div class="profile-container">
-            <!-- Tu foto cargada en el repositorio -->
-            <img src="GS.jpeg" alt="Mauro Cortez-Huerta" class="profile-img">
-            
-            <h1 id="h-name">Mauro Cortez-Huerta</h1>
-            <p class="subtitle">
-                <span class="lang-es">Candidato a Doctor en Ingeniería | Especialista en Calidad del Aire, Modelación Atmosférica y Gestión Ambiental</span>
-                <span class="lang-en">Engineering PhD Candidate | Air Quality, Atmospheric Modeling & Environmental Management</span>
-            </p>
+<nav aria-label="Secciones">
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" role="tab" data-tab="info"><span class="lang-es">Académica</span><span class="lang-en">Academic</span></button>
+    <button class="tab-btn" role="tab" data-tab="exp"><span class="lang-es">Experiencia</span><span class="lang-en">Experience</span></button>
+    <button class="tab-btn" role="tab" data-tab="pubs"><span class="lang-es">Publicaciones</span><span class="lang-en">Publications</span></button>
+    <button class="tab-btn" role="tab" data-tab="reviews"><span class="lang-es">Revisiones</span><span class="lang-en">Peer Review</span></button>
+    <button class="tab-btn" role="tab" data-tab="congresos"><span class="lang-es">Congresos</span><span class="lang-en">Conferences</span></button>
+    <button class="tab-btn" role="tab" data-tab="certs"><span class="lang-es">Certificaciones</span><span class="lang-en">Certifications</span></button>
+    <button class="tab-btn" role="tab" data-tab="talleres"><span class="lang-es">Talleres</span><span class="lang-en">Workshops</span></button>
+    <button class="tab-btn" role="tab" data-tab="difusion"><span class="lang-es">Difusión</span><span class="lang-en">Outreach</span></button>
+  </div>
+</nav>
 
-            <!-- Datos de contacto básicos -->
-            <div class="contact-row">
-                <span>📧 <a href="mailto:maurocortezhuerta@gmail.com">maurocortezhuerta@gmail.com</a></span>
-                <span>📱 +52 2226278653</span>
-            </div>
+<main>
+<section id="info" class="tab-content active" role="tabpanel">
+  <h2 class="lang-es">Objetivo Profesional</h2><h2 class="lang-en">Professional Objective</h2>
+  <p class="lang-es">Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
+  <p class="lang-en">Apply environmental engineering principles to design comprehensive strategies that prevent pollution and promote natural resource protection. Implement solutions considering water, soil, biodiversity, waste management, and atmospheric aspects, using multidisciplinary tools and methodologies in high-impact projects.</p>
+  <h2 class="lang-es">Educación y Formación</h2><h2 class="lang-en">Education and Training</h2>
+  <ul>
+    <li><strong>Doctorado en Ingeniería</strong> (Ago 2023 – Presente) · Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
+    <li><strong>Maestría en Ingeniería</strong> (Sep 2020 – Sep 2022) · Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
+    <li><strong>Ingeniería Ambiental</strong> (Ago 2015 – Mar 2020) · Benemérita Universidad Autónoma de Puebla (BUAP), Facultad de Ingeniería Química.</li>
+    <li><span class="lang-es"><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025), Universidad de Guadalajara (2019) y Universidad Francisco de Paula Santander (Colombia, 2017).</span><span class="lang-en"><strong>Research Visits &amp; Exchanges:</strong> University of Murcia (Spain, 2025), University of Guadalajara (2019) and Universidad Francisco de Paula Santander (Colombia, 2017).</span></li>
+  </ul>
+</section>
 
-            <!-- Logotipos / Enlaces de Redes Académicas -->
-            <div class="academic-logos">
-                <a href="https://www.scopus.com/authid/detail.uri?authorId=58541554700" target="_blank" class="logo-scopus">Scopus</a>
-                <a href="https://www.researchgate.net/profile/Mauro-Cortez-Huerta" target="_blank" class="logo-rg">ResearchGate</a>
-                <a href="https://orcid.org/0000-0001-8968-6405" target="_blank" class="logo-orcid">ORCID</a>
-                <a href="https://scholar.google.es/citations?user=0mN7vIEAAAAJ&hl=es" target="_blank" class="logo-scholar">Google Scholar</a>
-                <a href="https://www.linkedin.com/in/mauro-cortez-huerta-591830123/" target="_blank" class="logo-linkedin">LinkedIn</a>
-                <a href="https://www.webofscience.com/wos/author/record/JXM-4968-2024" target="_blank" class="logo-wos">Web of Science</a>
-            </div>
-        </div>
-    </header>
+<section id="exp" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Experiencia Profesional</h2><h2 class="lang-en">Professional Experience</h2>
+  <ul>
+    <li><strong>Técnico Especializado</strong> · Comisión Federal de Electricidad – CFE (Nov 2025 – Presente). Departamento de Caracterización Ambiental.</li>
+    <li><strong>Profesor</strong> · Universidad del Valle de México – UVM (Oct 2024 – Presente). Maestría en Ingeniería con Orientación en Energías Renovables.</li>
+    <li><strong>Profesor</strong> · Instituto de Estudios Universitarios – IEU (Sep 2024 – Ago 2025). Licenciatura en Ingeniería Ambiental.</li>
+    <li><strong>Consultor Ambiental</strong> · Universidad Nacional Autónoma de México – UNAM (Oct 2022 – Jun 2023). Instituto de Ciencias de la Atmósfera y Cambio Climático.</li>
+  </ul>
+</section>
 
-    <div class="container">
-        
-        <!-- Pestañas de Navegación -->
-        <div class="tabs-nav">
-            <button class="tab-btn active" onclick="openTab(event, 'tab-info')">
-                <span class="lang-es">Información Académica</span>
-                <span class="lang-en">Academic Info</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-exp')">
-                <span class="lang-es">Experiencia</span>
-                <span class="lang-en">Experience</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-pubs')">
-                <span class="lang-es">Publicaciones</span>
-                <span class="lang-en">Publications</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-reviews')">
-                <span class="lang-es">Revisiones</span>
-                <span class="lang-en">Peer Reviews</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-congresos')">
-                <span class="lang-es">Congresos</span>
-                <span class="lang-en">Conferences</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-certs')">
-                <span class="lang-es">Certificaciones y Cursos</span>
-                <span class="lang-en">Certifications & Courses</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-talleres')">
-                <span class="lang-es">Talleres y Webinars</span>
-                <span class="lang-en">Workshops & Webinars</span>
-            </button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-difusion')">
-                <span class="lang-es">Difusión y Vinculación</span>
-                <span class="lang-en">Outreach & Academic Links</span>
-            </button>
-        </div>
+<section id="pubs" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Publicaciones Seleccionadas</h2><h2 class="lang-en">Selected Publications</h2>
+  <ul>
+    <li><strong>Development of a high-resolution maritime emissions inventory for the Gulf of Mexico (GOM-HEI) based on AIS data</strong> (2026) <span class="badge">Ocean Engineering</span><br><a href="https://doi.org/10.1016/j.oceaneng.2026.127003" target="_blank" rel="noopener">doi.org/10.1016/j.oceaneng.2026.127003</a></li>
+    <li><strong>Random Forest approach to air quality assessment for port emissions in a coastal area in the Gulf of Mexico</strong> (2026) <span class="badge">Marine Pollution Bulletin</span><br><a href="https://doi.org/10.1016/j.marpolbul.2025.118765" target="_blank" rel="noopener">doi.org/10.1016/j.marpolbul.2025.118765</a></li>
+    <li><strong>Temporal estimation of air emissions due to maritime activities in the main ports of Panama</strong> (2025) <span class="badge">Regional Studies in Marine Science</span><br><a href="https://doi.org/10.1016/j.rsma.2025.104222" target="_blank" rel="noopener">doi.org/10.1016/j.rsma.2025.104222</a></li>
+    <li><strong>Air Quality Index and Ozone Environmental Contingencies in the Megalopolis of the Metropolitan Zone of the Valley of Mexico</strong> (2025) <span class="badge">Air Quality, Atmosphere &amp; Health</span><br><a href="https://doi.org/10.1007/s11869-025-01775-8" target="_blank" rel="noopener">doi.org/10.1007/s11869-025-01775-8</a></li>
+    <li><strong>High-resolution atmospheric emissions estimate from dredging activities during port expansion in Veracruz, Mexico</strong> (2024) <span class="badge">Ocean Engineering</span><br><a href="https://doi.org/10.1016/j.oceaneng.2024.118621" target="_blank" rel="noopener">doi.org/10.1016/j.oceaneng.2024.118621</a></li>
+    <li><strong>Influence of particulate matter on air quality due to “Nortes” events in the Gulf of Mexico</strong> (2023) <span class="badge">Atmospheric Pollution Research</span><br><a href="https://doi.org/10.1016/j.apr.2023.101889" target="_blank" rel="noopener">doi.org/10.1016/j.apr.2023.101889</a></li>
+  </ul>
+  <p class="more"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank" rel="noopener"><span class="lang-es">Ver lista completa en ORCID →</span><span class="lang-en">View full list on ORCID →</span></a></p>
+</section>
 
-        <!-- Contenido Pestaña 1: Información Académica (Objetivo + Educación) -->
-        <div id="tab-info" class="tab-content active">
-            <h2 class="lang-es">Objetivo Profesional</h2>
-            <h2 class="lang-en">Professional Objective</h2>
-            <p class="lang-es">Aplicar principios de ingeniería ambiental para diseñar estrategias integrales que prevengan la contaminación y promuevan la protección de los recursos naturales. Implementar soluciones que consideren agua, suelo, biodiversidad y gestión de residuos, además de aspectos atmosféricos, empleando herramientas y metodologías multidisciplinarias en proyectos de alto impacto.</p>
-            <p class="lang-en">Apply environmental engineering principles to design comprehensive strategies that prevent pollution and promote natural resource protection. Implement solutions considering water, soil, biodiversity, waste management, and atmospheric aspects, using multidisciplinary tools and methodologies in high-impact projects.</p>
+<section id="reviews" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Revisiones por Pares</h2><h2 class="lang-en">Peer Review Activity</h2>
+  <p class="lang-es">Revisor científico de manuscritos en revistas indexadas (33 revisiones registradas):</p>
+  <p class="lang-en">Scientific reviewer of manuscripts in indexed journals (33 registered reviews):</p>
+  <ul>
+    <li><strong>International Journal of Environmental Science and Technology</strong> · 8</li>
+    <li><strong>Marine Pollution Bulletin</strong> · 7</li>
+    <li><strong>Air Quality, Atmosphere &amp; Health</strong> · 5</li>
+    <li><strong>Discover Environment</strong> · 4</li>
+    <li><strong>Atmospheric Environment: X</strong> · 3</li>
+    <li><strong>Theoretical and Applied Climatology</strong> · 3</li>
+    <li><strong>Frontiers in Marine Science</strong> · 1</li>
+    <li><strong>Frontiers in Public Health</strong> · 1</li>
+    <li><strong>Ocean Engineering</strong> · 1</li>
+  </ul>
+</section>
 
-            <h2 style="margin-top: 30px;" class="lang-es">Educación y Formación</h2>
-            <h2 style="margin-top: 30px;" class="lang-en">Education and Training</h2>
-            <ul>
-                <li><strong>Doctorado en Ingeniería</strong> (Ago 2023 - Presente) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
-                <li><strong>Maestría en Ingeniería</strong> (Sep 2020 - Sep 2022) - Universidad Nacional Autónoma de México (UNAM), Facultad de Ingeniería.</li>
-                <li><strong>Ingeniería Ambiental</strong> (Ago 2015 - Mar 2020) - Benemérita Universidad Autónoma de Puebla (BUAP), Facultad de Ingeniería Química.</li>
-                <li><span class="lang-es"><strong>Estancias e Intercambios:</strong> Universidad de Murcia (España, 2025), Universidad de Guadalajara (2019), y Universidad Francisco de Paula Santander (Colombia, 2017).</span><span class="lang-en"><strong>Research Visits & Exchanges:</strong> University of Murcia (Spain, 2025), University of Guadalajara (2019), and Universidad Francisco de Paula Santander (Colombia, 2017).</span></li>
-            </ul>
-        </div>
+<section id="congresos" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Congresos</h2><h2 class="lang-en">Conferences</h2>
+  <ul>
+    <li><strong>Ponente</strong> · Benemérita Universidad Autónoma de Puebla – BUAP (Nov 2025). 5to Congreso Internacional de Estudiantes de Posgrado en Ingeniería Química (CIEPIQ2025), ponencia: “Contribución de las emisiones del tráfico marítimo a la calidad del aire de las ciudades costeras del Golfo de México”.</li>
+    <li><strong>Asistente</strong> · IOP Publishing (Oct – Nov 2023). Environmental Research 2023: A Virtual Events Series.</li>
+    <li><strong>Ponente</strong> · Universidad Francisco de Paula Santander – UFPS (Nov – Dic 2022). IX Semana Internacional de Ciencia, Tecnología e Innovación, ponencia: “Monitoreo de concentraciones de PM2.5 mediante sensores de bajo costo para producir mapas espacialmente continuos en el casco urbano de Pamplona, Colombia”.</li>
+  </ul>
+</section>
 
-        <!-- Contenido Pestaña 2: Experiencia -->
-        <div id="tab-exp" class="tab-content">
-            <h2 class="lang-es">Experiencia Profesional</h2>
-            <h2 class="lang-en">Professional Experience</h2>
-            <ul>
-                <li><strong>Técnico Especializado</strong> | Comisión Federal de Electricidad - CFE (Nov 2025 - Presente). Departamento de Caracterización Ambiental.</li>
-                <li><strong>Profesor</strong> | Universidad del Valle de México - UVM (Oct 2024 - Presente). Maestría en Ingeniería con Orientación en Energías Renovables.</li>
-                <li><strong>Profesor</strong> | Instituto de Estudios Universitarios - IEU (Sep 2024 - Ago 2025). Licenciatura en Ingeniería Ambiental.</li>
-                <li><strong>Consultor Ambiental</strong> | Universidad Nacional Autónoma de México - UNAM (Oct 2022 - Jun 2023). Instituto de Ciencias de la Atmósfera y Cambio Climático.</li>
-            </ul>
-        </div>
+<section id="certs" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Certificaciones y Cursos Profesionales</h2><h2 class="lang-en">Certifications and Professional Courses</h2>
+  <ul>
+    <li><strong>Participante Certificado</strong> · Springer Nature (Oct 2026). Environmental Intelligence: How Sensing Technologies Are Advancing Sustainability.</li>
+    <li><strong>Participante Acreditado</strong> · CEPE-ONU / UNECE (Jun 2026). Curso del Convenio sobre la Contaminación Atmosférica Transfronteriza a Gran Distancia.</li>
+    <li><strong>Docente Participante</strong> · Universidad del Valle de México – UVM (Mar 2026). Curso “Retroalimentación integral”.</li>
+    <li><strong>Estudiante Certificado</strong> · Google Cloud – Coursera (Sep 2025). Launching into Machine Learning en Español.</li>
+    <li><strong>Estudiante Certificado</strong> · Universidad de los Andes – Coursera (Sep 2025). Modelos predictivos con aprendizaje automático.</li>
+    <li><strong>Estudiante Certificado</strong> · Politecnico di Milano – Coursera (Sep 2025). Ethics of Artificial Intelligence.</li>
+    <li><strong>Estudiante Certificado</strong> · Politecnico di Milano – Coursera (Sep 2025). Technologies and platforms for Artificial Intelligence.</li>
+    <li><strong>Participante Certificado</strong> · Nature Masterclasses – Springer Nature (Jun 2025). Focus on Peer Review (3.5 horas).</li>
+    <li><strong>Participante Acreditado</strong> · Santander Open Academy (Mar 2025). Pensamiento crítico y resolución de problemas.</li>
+    <li><strong>Participante Certificado</strong> · ACS Institute (Mar 2025). Training Course: ACS Author Lab.</li>
+    <li><strong>Participante Acreditado</strong> · Google &amp; Santander Open Academy (Ago 2024). Curso de Inteligencia Artificial y productividad.</li>
+    <li><strong>Participante Acreditado</strong> · Emtech Institute &amp; Santander Open Academy (Jul 2024). Introducción a las Tecnologías Emergentes: Edición 2024.</li>
+    <li><strong>Participante Acreditado</strong> · INAFED &amp; INECC (Nov – Dic 2023). Categorías Ganadería y Agricultura del Sector AFOLU para Elaboración de Inventarios de GEI (42 horas).</li>
+    <li><strong>Becario</strong> · Fundación Telmex Telcel (Oct 2023). Diploma de designación como Becario Telmex Telcel.</li>
+    <li><strong>Estudiante Certificado</strong> · Google – Coursera (Feb 2023). Certificado Profesional de Análisis de Datos de Google (8 cursos: fundamentos de datos, toma de decisiones, preparación, limpieza, análisis, visualización con Tableau, programación en R y caso práctico).</li>
+    <li><strong>Participante Acreditado</strong> · INAFED &amp; INECC (Sep – Oct 2022). Sector Residuos para Elaboración de Inventarios de Gases de Efecto Invernadero (25 horas).</li>
+    <li><strong>Participante Acreditado</strong> · INAFED &amp; INECC (Ago – Sep 2022). Economía Circular y Cambio Climático (40 horas).</li>
+    <li><strong>Participante Acreditado</strong> · INAFED &amp; INECC (Feb – Abr 2021). Acciones de Mitigación de Emisiones de Gases de Efecto Invernadero (12.5 horas).</li>
+    <li><strong>Participante Acreditado</strong> · CENTROGEO &amp; MéxicoX (Jul 2020). Introducción al uso y representación de información geoespacial.</li>
+    <li><strong>Participante Acreditado</strong> · STPS (Feb 2019). NOM-019-STPS-2011 Comisiones de Seguridad e Higiene (16 horas).</li>
+  </ul>
+</section>
 
-        <!-- Contenido Pestaña 3: Publicaciones -->
-        <div id="tab-pubs" class="tab-content">
-            <h2 class="lang-es">Publicaciones Seleccionadas (ORCID / SCHOLAR)</h2>
-            <h2 class="lang-en">Selected Publications (ORCID / SCHOLAR)</h2>
-            <ul>
-                <li>
-                    <strong>Development of a high-resolution maritime emissions inventory for the Gulf of Mexico (GOM-HEI) based on AIS data</strong> (2026) <span class="badge">Ocean Engineering</span><br>
-                    <a href="https://doi.org/10.1016/j.oceaneng.2026.127003" target="_blank">DOI: 10.1016/j.oceaneng.2026.127003</a>
-                </li>
-                <li>
-                    <strong>Random Forest approach to air quality assessment for port emissions in a coastal area in the Gulf of Mexico</strong> (2026) <span class="badge">Marine Pollution Bulletin</span><br>
-                    <a href="https://doi.org/10.1016/j.marpolbul.2025.118765" target="_blank">DOI: 10.1016/j.marpolbul.2025.118765</a>
-                </li>
-                <li>
-                    <strong>Temporal estimation of air emissions due to maritime activities in the main ports of Panama</strong> (2025) <span class="badge">Regional Studies in Marine Science</span><br>
-                    <a href="https://doi.org/10.1016/j.rsma.2025.104222" target="_blank">DOI: 10.1016/j.rsma.2025.104222</a>
-                </li>
-                <li>
-                    <strong>Air Quality Index and Ozone Environmental Contingencies in the Megalopolis of the Metropolitan Zone of the Valley of Mexico</strong> (2025) <span class="badge">Air Quality, Atmosphere & Health</span><br>
-                    <a href="https://doi.org/10.1007/s11869-025-01775-8" target="_blank">DOI: 10.1007/s11869-025-01775-8</a>
-                </li>
-                <li>
-                    <strong>High-resolution atmospheric emissions estimate from dredging activities during port expansion in Veracruz, Mexico</strong> (2024) <span class="badge">Ocean Engineering</span><br>
-                    <a href="https://doi.org/10.1016/j.oceaneng.2024.118621" target="_blank">DOI: 10.1016/j.oceaneng.2024.118621</a>
-                </li>
-                <li>
-                    <strong>Influence of particulate matter on air quality due to "Nortes" events in the Gulf of Mexico</strong> (2023) <span class="badge">Atmospheric Pollution Research</span><br>
-                    <a href="https://doi.org/10.1016/j.apr.2023.101889" target="_blank">DOI: 10.1016/j.apr.2023.101889</a>
-                </li>
-            </ul>
-            <p style="margin-top: 15px; text-align: right;"><a href="https://orcid.org/0000-0001-8968-6405" target="_blank"><span class="lang-es">Ver lista completa de publicaciones en ORCID &rarr;</span><span class="lang-en">View full publication list on ORCID &rarr;</span></a></p>
-        </div>
+<section id="talleres" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Talleres y Webinars Especializados</h2><h2 class="lang-en">Specialized Workshops and Webinars</h2>
+  <ul>
+    <li><strong>Participante</strong> · DGTIC UNAM (Jun 2025). Macroentrenamiento en Inteligencia Artificial (MeIA 2025).</li>
+    <li><strong>Asistente</strong> · Elsevier Researcher Academy (Feb &amp; Ago 2024). Indicadores básicos para la creación de un reporte de mi estado del arte.</li>
+    <li><strong>Asistente</strong> · U.S. EPA (Ago 2024). Webinar: Tools for Adaptation Planning: LASSO and ICLUS.</li>
+    <li><strong>Asistente</strong> · U.S. EPA (Ago 2024). Webinar: Health Impacts of Air Pollutants Beyond Cardiovascular or Respiratory Effects.</li>
+    <li><strong>Asistente</strong> · U.S. EPA (Jul 2024). Webinar: Temperature, Precipitation, &amp; More: Datasets for Comprehensive Analysis of Local Climate Change Impacts.</li>
+    <li><strong>Asistente</strong> · Elsevier Researcher Academy (Abr 2024). Introducción al análisis de datos para la investigación.</li>
+    <li><strong>Asistente</strong> · Elsevier Researcher Academy (Mar 2024). Un recorrido por la metodología PICO.</li>
+    <li><strong>Asistente</strong> · Elsevier Researcher Academy (Feb 2024). Bases de datos a implementar en la enseñanza y aprendizaje.</li>
+    <li><strong>Asistente</strong> · Elsevier Researcher Academy (Sep 2023). “Graphical abstracts” para mejorar la visibilidad de tus artículos.</li>
+    <li><strong>Participante</strong> · UnADM &amp; MéxicoX (Ago – Sep 2023). Lectura y redacción de textos académicos (60 horas).</li>
+    <li><strong>Participante</strong> · INEGI (Sep – Oct 2016). Mapa Digital de México para Escritorio V6-24 (18 horas).</li>
+  </ul>
+</section>
 
-        <!-- Contenido Pestaña 4: Revisiones -->
-        <div id="tab-reviews" class="tab-content">
-            <h2 class="lang-es">Revisiones por Pares (Peer Review)</h2>
-            <h2 class="lang-en">Peer Review Activity</h2>
-            <p class="lang-es">Participación activa como revisor científico evaluando manuscritos en revistas indexadas de alto impacto (33 revisiones registradas):</p>
-            <p class="lang-en">Active participation as a scientific reviewer evaluating manuscripts in high-impact indexed journals (33 registered reviews):</p>
-            <ul>
-                <li><strong>International Journal of Environmental Science and Technology</strong> (8 revisiones)</li>
-                <li><strong>Marine Pollution Bulletin</strong> (7 revisiones)</li>
-                <li><strong>Air Quality, Atmosphere & Health</strong> (5 revisiones)</li>
-                <li><strong>Discover Environment</strong> (4 revisiones)</li>
-                <li><strong>Atmospheric Environment: X</strong> (3 revisiones)</li>
-                <li><strong>Theoretical and Applied Climatology</strong> (3 revisiones)</li>
-                <li><strong>Frontiers in Marine Science</strong> (1 revisión)</li>
-                <li><strong>Frontiers in Public Health</strong> (1 revisión)</li>
-                <li><strong>Ocean Engineering</strong> (1 revisión)</li>
-            </ul>
-        </div>
+<section id="difusion" class="tab-content" role="tabpanel">
+  <h2 class="lang-es">Difusión, Divulgación y Vinculación Académica</h2><h2 class="lang-en">Outreach, Science Communication &amp; Academic Linkage</h2>
+  <ul>
+    <li><strong>Participante</strong> · Facultad de Ingeniería UNAM (Ago 2025). Feria de Posgrado 2025.</li>
+    <li><strong>Vinculador Académico</strong> · ESIME Culhuacán IPN &amp; ICAT UNAM (May 2025). Visita escolar de alumnos y profesores de Ingeniería en Comunicaciones y Electrónica.</li>
+    <li><strong>Tallerista</strong> · ICAT UNAM &amp; REDEC (Abr 2025). Día de la Niñez en el ICAT 2025.</li>
+    <li><strong>Guía Científico</strong> · DGDC UNAM (Abr 2025). Programa Jóvenes hacia la Investigación, visita y divulgación en el ICAT.</li>
+    <li><strong>Comité Organizador</strong> · ICAT UNAM (Abr 2025). Bachilleratón ICAT UNAM 2025.</li>
+    <li><strong>Lector Externo de Tesis</strong> · CIIEMAD IPN (Nov 2024). Seminario III de la Maestría en Ciencias en Estudios Ambientales y de la Sustentabilidad.</li>
+    <li><strong>Investigador en Estancia</strong> · Programa Delfín – BUAP &amp; Universidad de Guadalajara (Jun – Ago 2019). XXIV Verano de la Investigación Científica y Tecnológica del Pacífico, proyecto sobre contaminación atmosférica e infecciones respiratorias.</li>
+  </ul>
+</section>
+</main>
 
-        <!-- Contenido Pestaña 5: Congresos (más actual a más antiguo) -->
-        <div id="tab-congresos" class="tab-content">
-            <h2 class="lang-es">Congresos</h2>
-            <h2 class="lang-en">Conferences</h2>
-            <ul>
-                <li><strong>Ponente</strong> | Benemérita Universidad Autónoma de Puebla - BUAP (Nov 2025). 5to Congreso Internacional de Estudiantes de Posgrado en Ingeniería Química (CIEPIQ2025), ponencia: "Contribución de las emisiones del tráfico marítimo a la calidad del aire de las ciudades costeras del Golfo de México".</li>
-                <li><strong>Asistente</strong> | IOP Publishing (Oct 2023 - Nov 2023). Environmental Research 2023: A Virtual Events Series.</li>
-                <li><strong>Ponente</strong> | Universidad Francisco de Paula Santander - UFPS (Nov 2022 - Dic 2022). IX Semana Internacional de Ciencia, Tecnología e Innovación, ponencia: "Monitoreo de concentraciones de PM2.5 mediante sensores de bajo costo para producir mapas espacialmente continuos en el casco urbano de Pamplona, Colombia".</li>
-            </ul>
-        </div>
+<footer>© 2026 Mauro Cortez-Huerta · <span class="lang-es">Actualizado 22-11-2026</span><span class="lang-en">Updated 22-11-2026</span></footer>
 
-        <!-- Contenido Pestaña 6: Certificaciones y Cursos Profesionales (más actual a más antiguo) -->
-        <div id="tab-certs" class="tab-content">
-            <h2 class="lang-es">Certificaciones y Cursos Profesionales</h2>
-            <h2 class="lang-en">Certifications and Professional Courses</h2>
-            <ul>
-                <li><strong>Participante Certificado</strong> | Springer Nature (Oct 2026). Environmental Intelligence: How Sensing Technologies Are Advancing Sustainability.</li>
-                <li><strong>Participante Acreditado</strong> | Comisión Económica para Europa de las Naciones Unidas - CEPE-ONU / UNECE (Jun 2026). Curso del Convenio sobre la Contaminación Atmosférica Transfronteriza a Gran Distancia.</li>
-                <li><strong>Docente Participante</strong> | Universidad del Valle de México - UVM (Mar 2026). Curso "Retroalimentación integral".</li>
-                <li><strong>Estudiante Certificado</strong> | Google Cloud - Coursera (Sep 2025). Launching into Machine Learning en Español.</li>
-                <li><strong>Estudiante Certificado</strong> | Universidad de los Andes - Coursera (Sep 2025). Modelos predictivos con aprendizaje automático.</li>
-                <li><strong>Estudiante Certificado</strong> | Politecnico di Milano - Coursera (Sep 2025). Ethics of Artificial Intelligence.</li>
-                <li><strong>Estudiante Certificado</strong> | Politecnico di Milano - Coursera (Sep 2025). Technologies and platforms for Artificial Intelligence.</li>
-                <li><strong>Participante Certificado</strong> | Nature Masterclasses - Springer Nature (Jun 2025). Focus on Peer Review (3.5 horas).</li>
-                <li><strong>Participante Acreditado</strong> | Santander Open Academy (Mar 2025). Pensamiento crítico y resolución de problemas.</li>
-                <li><strong>Participante Certificado</strong> | American Chemical Society - ACS Institute (Mar 2025). Training Course: ACS Author Lab.</li>
-                <li><strong>Participante Acreditado</strong> | Google & Santander Open Academy (Ago 2024). Curso de Inteligencia Artificial y productividad.</li>
-                <li><strong>Participante Acreditado</strong> | Emtech Institute & Santander Open Academy (Jul 2024). Programa Introducción a las Tecnologías Emergentes: Edición 2024.</li>
-                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Nov 2023 - Dic 2023). Categorías Ganadería y Agricultura del Sector AFOLU para Elaboración de Inventarios de GEI (42 horas).</li>
-                <li><strong>Becario</strong> | Fundación Telmex Telcel (Oct 2023). Diploma de designación como Becario Telmex Telcel.</li>
-                <li><strong>Estudiante Certificado</strong> | Google - Coursera (Feb 2023). Certificado Profesional de Análisis de Datos de Google (especialización completa de 8 cursos: fundamentos de datos, toma de decisiones, preparación, limpieza, análisis, visualización con Tableau, programación en R y caso práctico).</li>
-                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Sep 2022 - Oct 2022). Sector Residuos para Elaboración de Inventarios de Gases de Efecto Invernadero (25 horas).</li>
-                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Ago 2022 - Sep 2022). Economía Circular y Cambio Climático (40 horas).</li>
-                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Feb 2021 - Abr 2021). Acciones de Mitigación de Emisiones de Gases de Efecto Invernadero (12.5 horas).</li>
-                <li><strong>Participante Acreditado</strong> | Centro de Investigación en Geografía y Geomática - CENTROGEO & MéxicoX (Jul 2020). Introducción al uso y representación de información geoespacial.</li>
-                <li><strong>Participante Acreditado</strong> | Secretaría del Trabajo y Previsión Social - STPS (Feb 2019). NOM-019-STPS-2011 Comisiones de Seguridad e Higiene (16 horas).</li>
-            </ul>
-        </div>
-
-        <!-- Contenido Pestaña 7: Talleres y Webinars Especializados (más actual a más antiguo) -->
-        <div id="tab-talleres" class="tab-content">
-            <h2 class="lang-es">Talleres y Webinars Especializados</h2>
-            <h2 class="lang-en">Specialized Workshops and Webinars</h2>
-            <ul>
-                <li><strong>Participante</strong> | Universidad Nacional Autónoma de México - DGTIC UNAM (Jun 2025). Macroentrenamiento en Inteligencia Artificial (MeIA 2025).</li>
-                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Feb 2024 & Ago 2024). Taller: Indicadores básicos para la creación de un reporte de mi estado del arte.</li>
-                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Ago 2024). Webinar: Tools for Adaptation Planning: LASSO and ICLUS.</li>
-                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Ago 2024). Webinar: Health Impacts of Air Pollutants Beyond Cardiovascular or Respiratory Effects.</li>
-                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Jul 2024). Webinar: Temperature, Precipitation, & More: Datasets for Comprehensive Analysis of Local Climate Change Impacts.</li>
-                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Abr 2024). Taller: Introducción al análisis de datos para la investigación.</li>
-                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Mar 2024). Taller: Un recorrido por la metodología PICO.</li>
-                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Feb 2024). Taller: Bases de datos a implementar en la enseñanza y aprendizaje.</li>
-                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Sep 2023). Taller: "Graphical abstracts" para mejorar la visibilidad de tus artículos.</li>
-                <li><strong>Participante</strong> | Universidad Abierta y a Distancia de México - UnADM & MéxicoX (Ago 2023 - Sep 2023). Taller: Lectura y redacción de textos académicos (60 horas).</li>
-                <li><strong>Participante</strong> | Instituto Nacional de Estadística y Geografía - INEGI (Sep 2016 - Oct 2016). Taller básico: Mapa Digital de México para Escritorio V6-24 (18 horas).</li>
-            </ul>
-        </div>
-
-        <!-- Contenido Pestaña 8: Difusión, Divulgación y Vinculación Académica (más actual a más antiguo) -->
-        <div id="tab-difusion" class="tab-content">
-            <h2 class="lang-es">Difusión, Divulgación y Vinculación Académica</h2>
-            <h2 class="lang-en">Outreach, Science Communication & Academic Linkage</h2>
-            <ul>
-                <li><strong>Participante</strong> | Facultad de Ingeniería - UNAM (Ago 2025). Feria de Posgrado 2025.</li>
-                <li><strong>Vinculador Académico</strong> | Escuela Superior de Ingeniería Mecánica y Eléctrica - ESIME Culhuacán IPN & ICAT UNAM (May 2025). Visita escolar de alumnos y profesores de Ingeniería en Comunicaciones y Electrónica.</li>
-                <li><strong>Tallerista</strong> | Universidad Nacional Autónoma de México - ICAT UNAM & REDEC (Abr 2025). Día de la Niñez en el ICAT 2025.</li>
-                <li><strong>Guía Científico</strong> | Dirección General de Divulgación de la Ciencia - DGDC UNAM (Abr 2025). Programa Jóvenes hacia la Investigación, visita y divulgación en el ICAT.</li>
-                <li><strong>Comité Organizador</strong> | Instituto de Ciencias Aplicadas y Tecnología - ICAT UNAM (Abr 2025). Bachilleratón ICAT UNAM 2025.</li>
-                <li><strong>Lector Externo de Tesis</strong> | Centro Interdisciplinario de Investigaciones y Estudios Sobre Medio Ambiente y Desarrollo - CIIEMAD IPN (Nov 2024). Unidad de aprendizaje Seminario III de la Maestría en Ciencias en Estudios Ambientales y de la Sustentabilidad.</li>
-                <li><strong>Investigador en Estancia</strong> | Programa Delfín - BUAP & Universidad de Guadalajara (Jun 2019 - Ago 2019). XXIV Verano de la Investigación Científica y Tecnológica del Pacífico, proyecto sobre contaminación atmosférica e infecciones respiratorias.</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Mauro Cortez-Huerta; Actualizado 22-11-2026.</p>
-    </footer>
-
-    <script>
-        // Función para cambiar de pestaña (Tabs)
-        function openTab(evt, tabName) {
-            const contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-            const buttons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        // Función para cambiar de idioma (ES / EN)
-        function setLanguage(lang) {
-            const esElements = document.querySelectorAll('.lang-es');
-            const enElements = document.querySelectorAll('.lang-en');
-            if (lang === 'en') {
-                esElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'inline');
-                document.querySelectorAll('p.lang-en, h2.lang-en').forEach(el => el.style.display = 'block');
-            } else {
-                enElements.forEach(el => el.style.display = 'none');
-                esElements.forEach(el => el.style.display = 'inline');
-                document.querySelectorAll('p.lang-es, h2.lang-es').forEach(el => el.style.display = 'block');
-            }
-        }
-        // Inicializar por defecto en Español
-        setLanguage('es');
-    </script>
+<script>
+const tabs=[...document.querySelectorAll('.tab-btn')],panels=[...document.querySelectorAll('.tab-content')];
+function openTab(id,push){
+  if(!document.getElementById(id))id='info';
+  tabs.forEach(b=>{const on=b.dataset.tab===id;b.classList.toggle('active',on);b.setAttribute('aria-selected',on);if(on)b.scrollIntoView({inline:'center',block:'nearest'})});
+  panels.forEach(p=>p.classList.toggle('active',p.id===id));
+  if(push)history.replaceState(null,'','#'+id);
+}
+tabs.forEach(b=>b.addEventListener('click',()=>openTab(b.dataset.tab,true)));
+function setLanguage(l){
+  document.documentElement.dataset.lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('[data-set]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.set)));
+let saved='es';try{saved=localStorage.getItem('lang')||'es'}catch(e){}
+setLanguage(saved);
+openTab(location.hash.slice(1)||'info');
+addEventListener('hashchange',()=>openTab(location.hash.slice(1)||'info'));
+</script>
 </body>
 </html>
