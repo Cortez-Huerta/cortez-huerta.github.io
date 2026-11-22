@@ -112,7 +112,7 @@
 
         /* Sistema de Pestañas (Tabs) */
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -128,8 +128,8 @@
             background-color: transparent;
             border: none;
             color: white;
-            padding: 15px 25px;
-            font-size: 1rem;
+            padding: 14px 18px;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
@@ -245,8 +245,24 @@
                 <span class="lang-en">Publications</span>
             </button>
             <button class="tab-btn" onclick="openTab(event, 'tab-reviews')">
-                <span class="lang-es">Revisiones (Peer Review)</span>
+                <span class="lang-es">Revisiones</span>
                 <span class="lang-en">Peer Reviews</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-congresos')">
+                <span class="lang-es">Congresos</span>
+                <span class="lang-en">Conferences</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-certs')">
+                <span class="lang-es">Certificaciones y Cursos</span>
+                <span class="lang-en">Certifications & Courses</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-talleres')">
+                <span class="lang-es">Talleres y Webinars</span>
+                <span class="lang-en">Workshops & Webinars</span>
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-difusion')">
+                <span class="lang-es">Difusión y Vinculación</span>
+                <span class="lang-en">Outreach & Academic Links</span>
             </button>
         </div>
 
@@ -331,10 +347,85 @@
             </ul>
         </div>
 
+        <!-- Contenido Pestaña 5: Congresos (más actual a más antiguo) -->
+        <div id="tab-congresos" class="tab-content">
+            <h2 class="lang-es">Congresos</h2>
+            <h2 class="lang-en">Conferences</h2>
+            <ul>
+                <li><strong>Ponente</strong> | Benemérita Universidad Autónoma de Puebla - BUAP (Nov 2025). 5to Congreso Internacional de Estudiantes de Posgrado en Ingeniería Química (CIEPIQ2025), ponencia: "Contribución de las emisiones del tráfico marítimo a la calidad del aire de las ciudades costeras del Golfo de México".</li>
+                <li><strong>Asistente</strong> | IOP Publishing (Oct 2023 - Nov 2023). Environmental Research 2023: A Virtual Events Series.</li>
+                <li><strong>Ponente</strong> | Universidad Francisco de Paula Santander - UFPS (Nov 2022 - Dic 2022). IX Semana Internacional de Ciencia, Tecnología e Innovación, ponencia: "Monitoreo de concentraciones de PM2.5 mediante sensores de bajo costo para producir mapas espacialmente continuos en el casco urbano de Pamplona, Colombia".</li>
+            </ul>
+        </div>
+
+        <!-- Contenido Pestaña 6: Certificaciones y Cursos Profesionales (más actual a más antiguo) -->
+        <div id="tab-certs" class="tab-content">
+            <h2 class="lang-es">Certificaciones y Cursos Profesionales</h2>
+            <h2 class="lang-en">Certifications and Professional Courses</h2>
+            <ul>
+                <li><strong>Participante Certificado</strong> | Springer Nature (Oct 2026). Environmental Intelligence: How Sensing Technologies Are Advancing Sustainability.</li>
+                <li><strong>Participante Acreditado</strong> | Comisión Económica para Europa de las Naciones Unidas - CEPE-ONU / UNECE (Jun 2026). Curso del Convenio sobre la Contaminación Atmosférica Transfronteriza a Gran Distancia.</li>
+                <li><strong>Docente Participante</strong> | Universidad del Valle de México - UVM (Mar 2026). Curso "Retroalimentación integral".</li>
+                <li><strong>Estudiante Certificado</strong> | Google Cloud - Coursera (Sep 2025). Launching into Machine Learning en Español.</li>
+                <li><strong>Estudiante Certificado</strong> | Universidad de los Andes - Coursera (Sep 2025). Modelos predictivos con aprendizaje automático.</li>
+                <li><strong>Estudiante Certificado</strong> | Politecnico di Milano - Coursera (Sep 2025). Ethics of Artificial Intelligence.</li>
+                <li><strong>Estudiante Certificado</strong> | Politecnico di Milano - Coursera (Sep 2025). Technologies and platforms for Artificial Intelligence.</li>
+                <li><strong>Participante Certificado</strong> | Nature Masterclasses - Springer Nature (Jun 2025). Focus on Peer Review (3.5 horas).</li>
+                <li><strong>Participante Acreditado</strong> | Santander Open Academy (Mar 2025). Pensamiento crítico y resolución de problemas.</li>
+                <li><strong>Participante Certificado</strong> | American Chemical Society - ACS Institute (Mar 2025). Training Course: ACS Author Lab.</li>
+                <li><strong>Participante Acreditado</strong> | Google & Santander Open Academy (Ago 2024). Curso de Inteligencia Artificial y productividad.</li>
+                <li><strong>Participante Acreditado</strong> | Emtech Institute & Santander Open Academy (Jul 2024). Programa Introducción a las Tecnologías Emergentes: Edición 2024.</li>
+                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Nov 2023 - Dic 2023). Categorías Ganadería y Agricultura del Sector AFOLU para Elaboración de Inventarios de GEI (42 horas).</li>
+                <li><strong>Becario</strong> | Fundación Telmex Telcel (Oct 2023). Diploma de designación como Becario Telmex Telcel.</li>
+                <li><strong>Estudiante Certificado</strong> | Google - Coursera (Feb 2023). Certificado Profesional de Análisis de Datos de Google (especialización completa de 8 cursos: fundamentos de datos, toma de decisiones, preparación, limpieza, análisis, visualización con Tableau, programación en R y caso práctico).</li>
+                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Sep 2022 - Oct 2022). Sector Residuos para Elaboración de Inventarios de Gases de Efecto Invernadero (25 horas).</li>
+                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Ago 2022 - Sep 2022). Economía Circular y Cambio Climático (40 horas).</li>
+                <li><strong>Participante Acreditado</strong> | Instituto Nacional para el Federalismo y el Desarrollo Municipal - INAFED & INECC (Feb 2021 - Abr 2021). Acciones de Mitigación de Emisiones de Gases de Efecto Invernadero (12.5 horas).</li>
+                <li><strong>Participante Acreditado</strong> | Centro de Investigación en Geografía y Geomática - CENTROGEO & MéxicoX (Jul 2020). Introducción al uso y representación de información geoespacial.</li>
+                <li><strong>Participante Acreditado</strong> | Secretaría del Trabajo y Previsión Social - STPS (Feb 2019). NOM-019-STPS-2011 Comisiones de Seguridad e Higiene (16 horas).</li>
+            </ul>
+        </div>
+
+        <!-- Contenido Pestaña 7: Talleres y Webinars Especializados (más actual a más antiguo) -->
+        <div id="tab-talleres" class="tab-content">
+            <h2 class="lang-es">Talleres y Webinars Especializados</h2>
+            <h2 class="lang-en">Specialized Workshops and Webinars</h2>
+            <ul>
+                <li><strong>Participante</strong> | Universidad Nacional Autónoma de México - DGTIC UNAM (Jun 2025). Macroentrenamiento en Inteligencia Artificial (MeIA 2025).</li>
+                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Feb 2024 & Ago 2024). Taller: Indicadores básicos para la creación de un reporte de mi estado del arte.</li>
+                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Ago 2024). Webinar: Tools for Adaptation Planning: LASSO and ICLUS.</li>
+                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Ago 2024). Webinar: Health Impacts of Air Pollutants Beyond Cardiovascular or Respiratory Effects.</li>
+                <li><strong>Asistente</strong> | United States Environmental Protection Agency - U.S. EPA (Jul 2024). Webinar: Temperature, Precipitation, & More: Datasets for Comprehensive Analysis of Local Climate Change Impacts.</li>
+                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Abr 2024). Taller: Introducción al análisis de datos para la investigación.</li>
+                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Mar 2024). Taller: Un recorrido por la metodología PICO.</li>
+                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Feb 2024). Taller: Bases de datos a implementar en la enseñanza y aprendizaje.</li>
+                <li><strong>Asistente</strong> | Elsevier - Researcher Academy On Campus (Sep 2023). Taller: "Graphical abstracts" para mejorar la visibilidad de tus artículos.</li>
+                <li><strong>Participante</strong> | Universidad Abierta y a Distancia de México - UnADM & MéxicoX (Ago 2023 - Sep 2023). Taller: Lectura y redacción de textos académicos (60 horas).</li>
+                <li><strong>Participante</strong> | Instituto Nacional de Estadística y Geografía - INEGI (Sep 2016 - Oct 2016). Taller básico: Mapa Digital de México para Escritorio V6-24 (18 horas).</li>
+            </ul>
+        </div>
+
+        <!-- Contenido Pestaña 8: Difusión, Divulgación y Vinculación Académica (más actual a más antiguo) -->
+        <div id="tab-difusion" class="tab-content">
+            <h2 class="lang-es">Difusión, Divulgación y Vinculación Académica</h2>
+            <h2 class="lang-en">Outreach, Science Communication & Academic Linkage</h2>
+            <ul>
+                <li><strong>Participante</strong> | Facultad de Ingeniería - UNAM (Ago 2025). Feria de Posgrado 2025.</li>
+                <li><strong>Revisor Científico (Peer Reviewer)</strong> | Springer - Theoretical and Applied Climatology (Jul 2025). Arbitraje por pares de manuscritos científicos.</li>
+                <li><strong>Vinculador Académico</strong> | Escuela Superior de Ingeniería Mecánica y Eléctrica - ESIME Culhuacán IPN & ICAT UNAM (May 2025). Visita escolar de alumnos y profesores de Ingeniería en Comunicaciones y Electrónica.</li>
+                <li><strong>Tallerista</strong> | Universidad Nacional Autónoma de México - ICAT UNAM & REDEC (Abr 2025). Día de la Niñez en el ICAT 2025.</li>
+                <li><strong>Guía Científico</strong> | Dirección General de Divulgación de la Ciencia - DGDC UNAM (Abr 2025). Programa Jóvenes hacia la Investigación, visita y divulgación en el ICAT.</li>
+                <li><strong>Comité Organizador</strong> | Instituto de Ciencias Aplicadas y Tecnología - ICAT UNAM (Abr 2025). Bachilleratón ICAT UNAM 2025.</li>
+                <li><strong>Revisor Científico (Peer Reviewer)</strong> | Elsevier - Marine Pollution Bulletin (Mar 2025 - May 2025). Arbitraje por pares de manuscritos científicos.</li>
+                <li><strong>Lector Externo de Tesis</strong> | Centro Interdisciplinario de Investigaciones y Estudios Sobre Medio Ambiente y Desarrollo - CIIEMAD IPN (Nov 2024). Unidad de aprendizaje Seminario III de la Maestría en Ciencias en Estudios Ambientales y de la Sustentabilidad.</li>
+                <li><strong>Investigador en Estancia</strong> | Programa Delfín - BUAP & Universidad de Guadalajara (Jun 2019 - Ago 2019). XXIV Verano de la Investigación Científica y Tecnológica del Pacífico, proyecto sobre contaminación atmosférica e infecciones respiratorias.</li>
+            </ul>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 Mauro Cortez-Huerta; Actualizado 29-10-2026.</p>
+        <p>&copy; 2026 Mauro Cortez-Huerta; Actualizado 22-11-2026.</p>
     </footer>
 
     <script>
